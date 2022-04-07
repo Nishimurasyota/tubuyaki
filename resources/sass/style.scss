@@ -1,3 +1,22 @@
-html{
+html {
     background-color: skyblue;
+    body {
+        margin: auto;
+    }
+}
+
+.contents{
+    text-align: center;
+}
+
+
+.header {
+    background-color: white;
+}
+
+.footer {
+    background-color: antiquewhite;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }

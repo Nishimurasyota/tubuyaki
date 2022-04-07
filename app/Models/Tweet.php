@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Tweet extends Model
 {
     use HasFactory;
+
+    //Mass Assignmentの対策
+    protected $fillable = ["content"];
+
+    public static $rules = array(
+        "content" => "required",
+    );
 }

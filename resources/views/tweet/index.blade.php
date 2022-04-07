@@ -1,17 +1,33 @@
-<html lang="ja">
+@extends("layouts.layout")
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <title>Document</title>
-</head>
+@section("title","Tweet")
 
-<body>
+
+@section("header")
+Header
+@endsection
+<div class="index">
+    @section("sidebar")
+    <h4>新規作成</h4>
+    <form action="/tweet" method="post">
+        @csrf
+        <input type="text" name="content">
+        <input type="submit" value="作成">
+    </form>
+
+    @endsection
+
+    @section("mainContent")
+
     @foreach($tweets as $tweet)
+
     <p>{{$tweet->content}}</p>
     @endforeach
-</body>
 
-</html>
+    @endsection
+</div>
+
+
+@section("footer")
+copyright@2022
+@endsection

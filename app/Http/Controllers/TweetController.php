@@ -36,7 +36,12 @@ class TweetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, Tweet::$rules);
+        $tweet = new Tweet;
+        $form = $request->all();
+        unset($form['_token']);
+        $tweet->fill($form)->save();
+        return redirect("/tweet");
     }
 
     /**
