@@ -5,8 +5,14 @@
 
 @section("header")
 Header
+{{ \Carbon\Carbon::now()->format("Y年m月d日") }}
 @endsection
 <div class="index">
+    @if(count($errors)>0)
+        @foreach($errors->all() as $error)
+            <p>{{$error}}</p>
+        @endforeach
+    @endif
     @section("sidebar")
     <h4>新規作成</h4>
     <form action="/tweet" method="post">
@@ -21,7 +27,7 @@ Header
 
     @foreach($tweets as $tweet)
 
-    <p>{{$tweet->content}}</p>
+    <p><a href="{{route('tweet.show',$tweet->id)}}">{{$tweet->content}}</a></p>
     @endforeach
 
     @endsection

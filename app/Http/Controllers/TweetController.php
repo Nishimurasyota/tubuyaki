@@ -52,7 +52,8 @@ class TweetController extends Controller
      */
     public function show($id)
     {
-        //
+        $tweet = Tweet::find($id);
+        return view("tweet.show", compact('tweet'));
     }
 
     /**
@@ -63,7 +64,8 @@ class TweetController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tweet = Tweet::find($id);
+        return view("tweet.edit",["tweet" => $tweet]);
     }
 
     /**
@@ -75,7 +77,11 @@ class TweetController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tweet = Tweet::find($id);
+        $form = $request->all();
+        unset($form['_token']);
+        $tweet->fill($form)->save();
+        return view("tweet.show", ["tweet" => $tweet]);
     }
 
     /**
@@ -86,6 +92,7 @@ class TweetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tweet = Tweet::find($id)->delete();
+        return redirect("tweet");
     }
 }
