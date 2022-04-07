@@ -21,6 +21,9 @@ Route::get('/', function () {
 
 Route::resource("tweet", TweetController::class);
 
+Route::post("/comment/create" ,[CommentController::class,"create"]);
+Route::post("/comment/delete" ,[CommentController::class,"delete"]);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

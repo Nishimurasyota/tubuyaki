@@ -15,6 +15,11 @@ class Comment extends Model
     );
 
     public function tweet(){
-        $this->belongsTo("App\Model\Tweet");
+        return $this->belongsTo("App\Models\Tweet");
     }
+
+    protected $fillable = [
+        "comment",
+        "tweet_id",
+    ];
 }

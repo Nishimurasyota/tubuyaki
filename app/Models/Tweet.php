@@ -15,4 +15,7 @@ class Tweet extends Model
     public static $rules = array(
         "content" => "required",
     );
+    public function comments(){
+        return $this->hasMany("App\Models\Comment");
+    }
 }

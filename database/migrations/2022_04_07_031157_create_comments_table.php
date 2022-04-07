@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->increments("id");
             $table->string('comment')->comment("コメント");
+            $table->integer("tweet_id")->comment("tweetのキー");
             $table->timestamps();
         });
     }
