@@ -9,6 +9,14 @@ html body {
   text-align: center;
 }
 
+.comments_text {
+  background-color: antiquewhite;
+}
+
+.tweet_content {
+  background-color: aliceblue;
+}
+
 .header {
   background-color: white;
 }

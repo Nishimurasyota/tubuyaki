@@ -9,12 +9,20 @@ Header
 <div class="show">
 
     @section("mainContent")
-    <div>
+    <div class="tweet_content">
+        <p>つぶやきの内容</p>
         <p>{{$tweet->content}}</p>
+        <button onclick=location.href="{{route('tweet.edit', $tweet->id)}}">編集</button>
+        <form action="" method="post">
+            @csrf
+            @method("delete")
+            <input type="submit" value="削除">
+        </form>
     </div>
 
     @if($tweet->comments != null)
-    <div>
+    <div class="comments_text">
+        <h2>コメント一覧</h2>
         @foreach($tweet->comments as $obj)
         <p>{{$obj->comment}}</p>
         <form action="/comment/delete" method="post">
@@ -27,12 +35,6 @@ Header
 
     @endif
     <br>
-    <a href="{{route('tweet.edit', $tweet->id)}}"><button>編集</button></a>
-    <form action="" method="post">
-        @csrf
-        @method("delete")
-        <input type="submit" value="削除">
-    </form>
 
     <div>
         <form action="/comment/create" method="post">
