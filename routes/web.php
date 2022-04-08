@@ -33,3 +33,8 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+// Provider登録と動作確認のために記述
+// $name = app()->make('myName');
+
+// dd($name);

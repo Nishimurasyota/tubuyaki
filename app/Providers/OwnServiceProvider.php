@@ -13,7 +13,9 @@ class OwnServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        app()->bind("myName",function(){
+            return "syota";
+        });
     }
 
     /**
