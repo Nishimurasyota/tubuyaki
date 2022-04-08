@@ -18,6 +18,7 @@ Header
             @method("delete")
             <input type="submit" value="削除">
         </form>
+        <button onclick=location.href="{{route('tweet.index')}}">一覧へ</button>
     </div>
 
     @if($tweet->comments != null)
