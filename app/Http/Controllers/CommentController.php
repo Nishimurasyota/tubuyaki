@@ -16,7 +16,7 @@ class CommentController extends Controller
         unset($form['_token']);
         $comment->fill($form)->save();
         $tweet = Tweet::find($comment->tweet->id);
-        return view("tweet.show", ["tweet" => $tweet]);
+        return redirect("tweet");
     }
 
     public function delete(Request $request)
@@ -24,6 +24,6 @@ class CommentController extends Controller
         $comment = Comment::find($request->id);
         $tweet = Tweet::find($comment->tweet->id);
         $comment->delete();
-        return view("tweet.show",["tweet"=>$tweet]);
+        return redirect("tweet");
     }
 }
